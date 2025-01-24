@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome, Zuzu!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: #ffe4e1 url('https://www.transparenttextures.com/patterns/flowers.png');
+      color: #ff69b4;
+    }
+
+    header {
+      background-color: #ffb6c1;
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 10px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .tabs a {
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      background-color: #ff69b4;
+      color: white;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .tabs a:hover {
+      background-color: #ff1493;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .photos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .photos .photo {
+      text-align: center;
+      background: #fff;
+      padding: 10px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .photos .photo img {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .quotes {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #ff1493;
+    }
+
+    .quotes span {
+      font-size: 24px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #ffb6c1;
+      font-size: 14px;
+      color: #ff69b4;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Welcome to Your Special Website, Zuzu! 💖
+  </header>
+
+  <div class="container">
+    <nav class="tabs">
+      <a href="#home" onclick="showTab(event, 'home')">Home</a>
+      <a href="#photos" onclick="showTab(event, 'photos')">Photos</a>
+      <a href="#quotes" onclick="showTab(event, 'quotes')">Love Quotes</a>
+    </nav>
+
+    <section id="home" class="tab-content active">
+      <h2>Welcome, Zuzu!</h2>
+      <p>You are the most amazing person in the world. This website was made just for you to show how much you are loved. Explore the tabs to see what surprises await you! 💕</p>
+    </section>
+
+    <section id="photos" class="tab-content">
+      <h2>Your Beautiful Photos 📸</h2>
+      <div class="photos">
+        <div class="photo">
+          <img src="Screenshot 2025-01-24 105737.jpg" alt="Photo 1">
+          <p>You light up my world! 🌟</p>
+        </div>
+        <div class="photo">
+          <img src="Screenshot 2025-01-24 110252.jpg" alt="Photo 2">
+          <p>Your smile is everything. 😊</p>
+        </div>
+        <div class="photo">
+          <img src="Screenshot 2025-01-24 110324.jpg" alt="Photo 3">
+          <p>You are breathtaking! 😍</p>
+        </div>
+        <div class="photo">
+          <img src="Screenshot 2025-01-24 110644.jpg" alt="Photo 4">
+          <p>My heart belongs to you. 💕</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="quotes" class="tab-content">
+      <h2>Love Quotes for You 💌</h2>
+      <div class="quotes">
+        <p><span>💖</span> "You are my sunshine, my only sunshine."
+        </p>
+        <p><span>💕</span> "I love you to the moon and back."
+        </p>
+        <p><span>🌸</span> "You make my heart skip a beat."
+        </p>
+        <p><span>🌟</span> "Every moment with you is magic."
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    Made with endless love for you, Zuzu. 💖
+  </footer>
+
+  <script>
+    function showTab(event, tabId) {
+      event.preventDefault();
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
