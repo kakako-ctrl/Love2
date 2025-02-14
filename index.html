@@ -3,175 +3,426 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome, Zuzu!</title>
+  <title>For My Zuzu 💖</title>
   <style>
+    /* General Styles */
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: #ffe4e1 url('https://www.transparenttextures.com/patterns/flowers.png');
-      color: #ff69b4;
+      font-family: 'Playfair Display', serif;
+      background: url('https://i.pinimg.com/564x/1L/oK/Ey/d6/1LoKEyd6.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
+      color: #5a3a2e; /* Romantic brown for text */
     }
 
     header {
-      background-color: #ffb6c1;
-      padding: 15px;
       text-align: center;
-      font-size: 24px;
-      font-weight: bold;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      padding: 20px;
+      font-size: 3em;
+      color: #ff69b4; /* Pink for header */
+      background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-bottom: 5px solid #ff69b4;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     .container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
     }
 
     .tabs {
+      margin-bottom: 30px;
       display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
+      gap: 20px;
+      animation: slideIn 1.5s ease-in-out;
     }
 
-    .tabs a {
+    @keyframes slideIn {
+      0% { opacity: 0; transform: translateX(-50px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    .tab {
+      padding: 12px 30px;
+      border: 3px solid #ff69b4;
+      border-radius: 25px;
       text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 20px;
+      color: #ff69b4;
+      background-color: rgba(255, 255, 255, 0.9);
+      font-weight: bold;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .tab:hover {
       background-color: #ff69b4;
       color: white;
-      font-weight: bold;
-      transition: background-color 0.3s;
+      transform: scale(1.1);
     }
 
-    .tabs a:hover {
-      background-color: #ff1493;
-    }
-
-    .tab-content {
+    .section {
       display: none;
+      width: 90%;
+      max-width: 1000px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      margin-bottom: 30px;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      opacity: 0;
+      transform: translateY(20px);
     }
 
-    .tab-content.active {
+    .section.active {
       display: block;
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .photos {
+    .photo-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
       justify-items: center;
     }
 
-    .photos .photo {
-      text-align: center;
-      background: #fff;
-      padding: 10px;
-      border-radius: 15px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .photos .photo img {
+    .photo-grid img {
       width: 100%;
       max-width: 250px;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 10px;
+      border-radius: 15px;
+      border: 4px solid #ff69b4;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, filter 0.3s ease;
+      filter: brightness(90%);
     }
 
-    .quotes {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      font-size: 18px;
-      line-height: 1.6;
-      color: #ff1493;
+    .photo-grid img:hover {
+      transform: scale(1.1);
+      filter: brightness(100%);
     }
 
-    .quotes span {
-      font-size: 24px;
+    .photo-caption {
+      margin-top: 10px;
+      font-size: 1.1em;
+      color: #ff69b4;
+    }
+
+    .quote-card {
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 800px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #ffebf0, #ffe4f7);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      font-size: 1.5em;
+      color: #ff69b4;
+      position: relative;
+      transform: scale(1);
+      transition: transform 0.3s ease;
+    }
+
+    .quote-card:hover {
+      transform: scale(1.05);
+    }
+
+    .quote-card::before {
+      content: '\201C';
+      font-size: 2.5em;
+      color: #ff69b4;
+      position: absolute;
+      top: -10px;
+      left: 20px;
     }
 
     footer {
+      margin-top: 30px;
       text-align: center;
-      padding: 10px;
-      background-color: #ffb6c1;
-      font-size: 14px;
+      font-size: 1em;
       color: #ff69b4;
-      margin-top: 20px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    /* Valentine's Day Section */
+    .valentine-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .valentine-section h2 {
+      font-size: 2.5em;
+      color: #ff69b4;
+      margin-bottom: 20px;
+    }
+
+    .valentine-section p {
+      font-size: 1.5em;
+      color: #ff69b4;
+      margin-bottom: 20px;
+    }
+
+    .valentine-section button {
+      padding: 15px 30px;
+      border: 3px solid #ff69b4;
+      border-radius: 25px;
+      text-decoration: none;
+      color: #ff69b4;
+      background-color: rgba(255, 255, 255, 0.9);
+      font-weight: bold;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .valentine-section button:hover {
+      background-color: #ff69b4;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    /* Confetti Animation */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff69b4;
+      animation: confettiFall 3s linear forwards;
+      opacity: 0.8;
+    }
+
+    @keyframes confettiFall {
+      0% { transform: translateY(-10vh) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    /* Flower Animation */
+    .flower {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: url('https://www.svgrepo.com/show/276642/flower.svg') no-repeat center center;
+      background-size: contain;
+      animation: floatFlowers 12s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes floatFlowers {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-100vh) rotate(360deg); }
+    }
+
+    /* Sparkle Animation */
+    .sparkle {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://www.svgrepo.com/show/309623/sparkle.svg') no-repeat center center;
+      background-size: contain;
+      animation: floatSparkles 8s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes floatSparkles {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-100vh) rotate(360deg); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        font-size: 2em;
+        padding: 15px;
+      }
+
+      .tabs {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .tab {
+        padding: 10px 20px;
+      }
+
+      .section {
+        padding: 15px;
+      }
+
+      .photo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+
+      .photo-grid img {
+        max-width: 200px;
+      }
+
+      .quote-card {
+        font-size: 1.2em;
+        padding: 15px;
+      }
+
+      .valentine-section h2 {
+        font-size: 2em;
+      }
+
+      .valentine-section p {
+        font-size: 1.2em;
+      }
+
+      .valentine-section button {
+        padding: 10px 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    Welcome to Your Special Website, Zuzu! 💖
-  </header>
+  <header>Welcome, My Love Zuzu! 💖</header>
 
   <div class="container">
     <nav class="tabs">
-      <a href="#home" onclick="showTab(event, 'home')">Home</a>
-      <a href="#photos" onclick="showTab(event, 'photos')">Photos</a>
-      <a href="#quotes" onclick="showTab(event, 'quotes')">Love Quotes</a>
+      <a href="#" class="tab" onclick="showSection('home')">Home</a>
+      <a href="#" class="tab" onclick="showSection('photos')">Photos</a>
+      <a href="#" class="tab" onclick="showSection('quotes')">Love Quotes</a>
+      <a href="#" class="tab" onclick="showSection('valentine')">Valentine's Day</a>
+      <a href="#" class="tab" onclick="showSection('letter')">Love Letter</a>
     </nav>
 
-    <section id="home" class="tab-content active">
-      <h2>Welcome, Zuzu!</h2>
-      <p>You are the most amazing person in the world. This website was made just for you to show how much you are loved. Explore the tabs to see what surprises await you! 💕</p>
+    <section id="home" class="section active">
+      <h2>Welcome to Your Special Page! 💕</h2>
+      <p>Zuzu, you are the most beautiful person in the world. This page is all for you! 💖</p>
     </section>
 
-    <section id="photos" class="tab-content">
-      <h2>Your Beautiful Photos 📸</h2>
-      <div class="photos">
-        <div class="photo">
-          <img src="Screenshot 2025-01-24 105737.jpg" alt="Photo 1">
-          <p>You light up my world! 🌟</p>
+    <section id="photos" class="section">
+      <h2>Lovely Memories 📸</h2>
+      <div class="photo-grid">
+        <div>
+          <img src="Screenshot%202025-01-24%20105737.jpg" alt="Photo 1">
+          <div class="photo-caption">You light up my life! 🌟</div>
         </div>
-        <div class="photo">
-          <img src="Screenshot 2025-01-24 110252.jpg" alt="Photo 2">
-          <p>Your smile is everything. 😊</p>
+        <div>
+          <img src="Screenshot%202025-01-24%20110252.jpg" alt="Photo 2">
+          <div class="photo-caption">Every moment with you is precious. 💖</div>
         </div>
-        <div class="photo">
-          <img src="Screenshot 2025-01-24 110324.jpg" alt="Photo 3">
-          <p>You are breathtaking! 😍</p>
+        <div>
+          <img src="Screenshot%202025-01-24%20110324.jpg" alt="Photo 3">
+          <div class="photo-caption">You are my sunshine! ☀️</div>
         </div>
-        <div class="photo">
-          <img src="Screenshot 2025-01-24 110644.jpg" alt="Photo 4">
-          <p>My heart belongs to you. 💕</p>
+        <div>
+          <img src="Screenshot%202025-01-24%20110644.jpg" alt="Photo 4">
+          <div class="photo-caption">I love you more every day. 💕</div>
         </div>
       </div>
     </section>
 
-    <section id="quotes" class="tab-content">
-      <h2>Love Quotes for You 💌</h2>
-      <div class="quotes">
-        <p><span>💖</span> "You are my sunshine, my only sunshine."
+    <section id="quotes" class="section">
+      <h2>Love Quotes 💌</h2>
+      <div class="quote-card">"I love you not because of who you are, but because of who I am when I am with you."</div>
+      <div class="quote-card">"Every love story is beautiful, but ours is my favorite."</div>
+      <div class="quote-card">"You are my heart, my soul, my everything."</div>
+    </section>
+
+    <section id="valentine" class="section">
+      <div class="valentine-section">
+        <h2>Will You Be My Valentine? 💝</h2>
+        <p>Zuzu, you mean the world to me. Will you make me the happiest person and be my Valentine? 💖</p>
+        <button onclick="showValentineMessage()">Yes, I will! 💕</button>
+      </div>
+    </section>
+
+    <section id="letter" class="section">
+      <div class="love-letter">
+        <h2>My Dearest Zuzu,</h2>
+        <p>
+          From the moment I met you, my life changed forever. You brought light into my world, and every day with you feels like a dream. Your smile, your laugh, your kindness—everything about you makes me fall in love with you more and more. 💖
         </p>
-        <p><span>💕</span> "I love you to the moon and back."
+        <p>
+          I promise to cherish you, support you, and love you with all my heart. You are my everything, and I can't wait to create countless more memories with you. Happy Valentine's Day, my love. 💕
         </p>
-        <p><span>🌸</span> "You make my heart skip a beat."
-        </p>
-        <p><span>🌟</span> "Every moment with you is magic."
-        </p>
+        <p>Forever yours,</p>
+        <p> Fahad 💖</p>
       </div>
     </section>
   </div>
 
   <footer>
-    Made with endless love for you, Zuzu. 💖
+    Made with 💖 for Zuzu.
   </footer>
 
+  <!-- Heart, Flower, and Sparkle Animation Script -->
   <script>
-    function showTab(event, tabId) {
-      event.preventDefault();
-      document.querySelectorAll('.tab-content').forEach(tab => {
-        tab.classList.remove('active');
+    const body = document.querySelector('body');
+
+    // Add floating hearts
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 10 + 5 + 's';
+      heart.style.opacity = Math.random();
+      body.appendChild(heart);
+    }
+
+    // Add floating flowers
+    for (let i = 0; i < 15; i++) {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = Math.random() * 12 + 6 + 's';
+      flower.style.opacity = Math.random();
+      body.appendChild(flower);
+    }
+
+    // Add floating sparkles
+    for (let i = 0; i < 25; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.left = Math.random() * 100 + 'vw';
+      sparkle.style.animationDuration = Math.random() * 8 + 4 + 's';
+      sparkle.style.opacity = Math.random();
+      body.appendChild(sparkle);
+    }
+
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
       });
-      document.getElementById(tabId).classList.add('active');
+      document.getElementById(sectionId).classList.add('active');
+    }
+
+    function showValentineMessage() {
+      alert("Yay! I'm the luckiest person in the world! 💖 I love you, Zuzu! 💕");
+
+      // Add confetti
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+        confetti.style.opacity = Math.random();
+        body.appendChild(confetti);
+
+        // Remove confetti after animation ends
+        setTimeout(() => {
+          confetti.remove();
+        }, 3000);
+      }
     }
   </script>
+</body>
+</html>
+
 </body>
 </html>
